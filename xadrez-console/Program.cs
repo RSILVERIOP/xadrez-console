@@ -14,33 +14,30 @@ namespace xadrez_console
             {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                while (!partida.terminada)
+                while (!partida.Terminada)
                 {
                     try
                     {
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                        Tela.ImprimirPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
-                        Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                        Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
 
-                        partida.validarPosicaoDeOrigem(origem);
+                        partida.ValidarPosicaoDeOrigem(origem);
 
-                        bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
+                        bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
 
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
+                        Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
 
                         Console.WriteLine();
                         Console.Write("Destino: ");
-                        Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
-                        partida.validarPosicaoDeDestino(origem, destino);
+                        Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
+                        partida.ValidarPosicaoDeDestino(origem, destino);
 
-                        partida.realizarJogada(origem, destino);
+                        partida.RealizarJogada(origem, destino);
                     }
                     catch(TabuleiroException e)
                     {
