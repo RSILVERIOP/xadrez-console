@@ -57,22 +57,22 @@ namespace xadrez
                 pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
                 if (Tab.PosicaoValida(pos) && Livre(pos))
                 {
-                    mat[Tab.Linhas, pos.Coluna] = true;
+                    mat[pos.Linha, pos.Coluna] = true;
                 }
                 pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna);
                 if (Tab.PosicaoValida(pos) && Livre(pos) && QtdeMovimentos == 0)
                 {
-                    mat[Tab.Linhas, pos.Coluna] = true;
+                    mat[pos.Linha, pos.Coluna] = true;
                 }
                 pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
                 if (Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                 {
-                    mat[Tab.Linhas, pos.Coluna] = true;
+                    mat[pos.Linha, pos.Coluna] = true;
                 }
                 pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
                 if (Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                 {
-                    mat[Tab.Linhas, pos.Coluna] = true;
+                    mat[pos.Linha, pos.Coluna] = true;
                 }
             }
 
